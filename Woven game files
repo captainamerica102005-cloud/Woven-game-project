@@ -1,0 +1,770 @@
+root = true
+
+[*]
+charset = utf-8
+
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://mmjiuhkidxuu"
+path="res://.godot/imported/Black.png-7579103388df317c8c1bcccb29fb5e9b.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Black.png"
+dest_files=["res://.godot/imported/Black.png-7579103388df317c8c1bcccb29fb5e9b.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
+
+extends Node
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer # Make sure this matches your AnimationPlayer node name!
+var menu_scene_path := "res://Main Menu/main_menu.tscn"
+
+func _ready() -> void:
+	# 1. Connect to the animation finished signal automatically
+	animation_player.animation_finished.connect(_on_animation_finished)
+	
+	# 2. Play your boot animation
+	animation_player.play("Boot_Animation") # Put your exact animation name here!
+
+func _on_animation_finished(_anim_name: String) -> void:
+	# 3. This fires the exact millisecond the animation stops
+	transition_to_menu()
+
+func transition_to_menu() -> void:
+	var game_vp = get_node_or_null("/root/DisplayRoot/GameViewport") as SubViewport
+	
+	if game_vp:
+		var menu_scene = load(menu_scene_path)
+		if menu_scene:
+			var menu_instance = menu_scene.instantiate()
+			game_vp.add_child(menu_instance)
+			queue_free()
+	else:
+		get_tree().change_scene_to_file(menu_scene_path)
+
+"res://Main Menu/main_menu.tscn"
+
+"res://node_2d.tscn"
+
+uid://coqushyldei82
+
+[gd_scene format=3 uid="uid://djomn86h6gjua"]
+
+[ext_resource type="Texture2D" uid="uid://bl8qq1kmhicnl" path="res://Lighthouse games real.png" id="1_e05bb"]
+[ext_resource type="Script" uid="uid://coqushyldei82" path="res://boot_screen.gd" id="1_r5uig"]
+[ext_resource type="AudioStream" uid="uid://c1o74mlanwvcv" path="res://La light house boot noise.mp3" id="2_qgk0v"]
+
+[sub_resource type="Animation" id="Animation_qgk0v"]
+resource_name = "Boot_Animation"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5.02, 7.02, 7.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6acqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r5uig"]
+_data = {
+&"Boot_Animation": SubResource("Animation_qgk0v"),
+&"RESET": SubResource("Animation_6acqa")
+}
+
+[node name="BootScreen" type="Control" unique_id=1448587569]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r5uig")
+
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=1416527168]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1510102, 1.1648148)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1422106698]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e05bb")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1032103500]
+libraries/ = SubResource("AnimationLibrary_r5uig")
+autoplay = &"Boot_Animation"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1264255481]
+stream = ExtResource("2_qgk0v")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bxshkank7t68a"
+path="res://.godot/imported/Cage.png-332a355b6a5be42f885f9350eda6ebb5.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Cage.png"
+dest_files=["res://.godot/imported/Cage.png-332a355b6a5be42f885f9350eda6ebb5.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
+
+extends CharacterBody2D
+
+func _ready():
+	print("CONNECTION SUCCESSFUL! THE SCRIPT IS WORKING!")
+
+func _physics_process(_delta):
+	# Look for our newly created input map action
+	if Input.is_action_pressed("move_up"):
+		velocity.y = -200
+	else:
+		velocity.y = 0
+
+	move_and_slide()
+
+uid://bpeuk23yg5bpx
+
+[gd_resource type="AudioBusLayout" format=3 uid="uid://dfsgjefjuqsqv"]
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/3/name = &"Dialog"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+
+extends Control
+
+@onready var screen_tex: TextureRect = $ScreenContainer
+@onready var game_vp: SubViewport = $GameViewport
+
+func _ready() -> void:
+	screen_tex.texture = game_vp.get_texture()
+
+	game_vp.size_2d_override = Vector2i(1152, 648)
+	game_vp.size_2d_override_stretch = true
+	game_vp.gui_embed_subwindows = true
+	game_vp.handle_input_locally = true
+
+func _process(_delta: float) -> void:
+	# 🟢 THE MANUAL HOVER ENFORCER:
+	# Safely look for your active scrollbar node anywhere inside the settings menu
+	var v_scroll = game_vp.find_child("VideoList", true, false)
+	if v_scroll and v_scroll.has_method("get_v_scroll_bar"):
+		var bar = v_scroll.get_v_scroll_bar()
+		if bar:
+			# Get the scrollbar's real physical box position on your 1152x648 UI canvas
+			var bar_rect = Rect2(bar.global_position, bar.size)
+			# Get your live forwarded mouse position inside the viewport
+			var mouse_pos = game_vp.get_mouse_position()
+			
+			# If your mouse cursor is physically colliding with the red scrollbar box:
+			if bar_rect.has_point(mouse_pos):
+				# Force the engine to draw the 'grabber_highlight' texture instantly!
+				bar.mouse_filter = Control.MOUSE_FILTER_STOP
+				# This fakes a system focus grab so the texture pops red
+				if bar.theme_type_variation != "VScrollBar_Hovered":
+					bar.theme_type_variation = "VScrollBar_Hovered"
+			else:
+				# Drop back to your normal texture state when the mouse walks away
+				if bar.theme_type_variation == "VScrollBar_Hovered":
+					bar.theme_type_variation = ""
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouse:
+		var mouse_event := event as InputEventMouse
+		var tex_rect := _get_drawn_texture_rect()
+
+		var pos_in_screen := mouse_event.position - screen_tex.position
+		if not tex_rect.has_point(pos_in_screen):
+			return
+
+		var local_event := mouse_event.duplicate() as InputEventMouse
+		local_event.position = (
+			(pos_in_screen - tex_rect.position)
+			/ tex_rect.size
+			* Vector2(game_vp.size)
+		)
+		local_event.global_position = local_event.position
+
+		if event is InputEventMouseMotion:
+			var motion := event as InputEventMouseMotion
+			var local_motion := local_event as InputEventMouseMotion
+			local_motion.relative = (
+				motion.relative / tex_rect.size * Vector2(game_vp.size)
+			)
+
+		game_vp.push_input(local_event)
+	else:
+		game_vp.push_input(event)
+
+func _get_drawn_texture_rect() -> Rect2:
+	var container_size := screen_tex.size
+	var vp_size := Vector2(game_vp.size)
+	if vp_size.x <= 0.0 or vp_size.y <= 0.0:
+		return Rect2(Vector2.ZERO, container_size)
+	var scale_factor := minf(container_size.x / vp_size.x, container_size.y / vp_size.y)
+	var drawn_size := vp_size * scale_factor
+	var offset := (container_size - drawn_size) * 0.5
+	return Rect2(offset, drawn_size)
+
+uid://6lfp112gbyq3
+
+[gd_scene format=3 uid="uid://6eosan0fdase"]
+
+[ext_resource type="Script" uid="uid://6lfp112gbyq3" path="res://display_root.gd" id="1_6coja"]
+[ext_resource type="PackedScene" uid="uid://djomn86h6gjua" path="res://boot_screen.tscn" id="1_6mdfn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6mdfn"]
+viewport_path = NodePath("GameViewport")
+
+[node name="DisplayRoot" type="Control" unique_id=1712220380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6coja")
+
+[node name="ScreenContainer" type="TextureRect" parent="." unique_id=1726956292]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_6mdfn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GameViewport" type="SubViewport" parent="." unique_id=114700938]
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="BootScreen" parent="GameViewport" unique_id=1448587569 instance=ExtResource("1_6mdfn")]
+
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b2w2m62lsoh8a"
+path="res://.godot/imported/Donny.png-1c0ed8f717a7d28da5f6dd844c0864a4.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Donny.png"
+dest_files=["res://.godot/imported/Donny.png-1c0ed8f717a7d28da5f6dd844c0864a4.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
+
+extends CharacterBody2D
+
+func _ready():
+	print("CONNECTION SUCCESSFUL! MODULAR LOGIC ENGAGED!")
+
+# 1. This is the ONLY master loop Godot automatically runs
+func _physics_process(_delta):
+	# We use this master room to call your custom blocks below!
+	_physics_up()
+	_physics_down()
+	_physics_left()
+	_physics_right()
+	
+	# Now that all directions are checked, execute the movement
+	move_and_slide()
+
+
+# 2. Your custom blocks (Notice we removed the "_delta" since the master handles time)
+func _physics_up():
+	if Input.is_action_pressed("move_up"):
+		velocity.y = -500
+	else:
+		if not Input.is_action_pressed("move_down"): # Only stop if we aren't pressing down
+			velocity.y = 0
+
+func _physics_down():
+	if Input.is_action_pressed("move_down"):
+		velocity.y = 500
+	else:
+		if not Input.is_action_pressed("move_up"):
+			velocity.y = 0
+
+func _physics_left():
+	if Input.is_action_pressed("move_left"):
+		velocity.x = -500
+		$Donny.flip_h = true
+	else:
+		if not Input.is_action_pressed("move_right"):
+			velocity.x = 0
+
+func _physics_right():
+	if Input.is_action_pressed("move_right"):
+		velocity.x = 500
+		$Donny.flip_h = false
+	else:
+		if not Input.is_action_pressed("move_left"):
+			velocity.x = 0
+
+uid://bom6dkcdr4jyg
+
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><rect width="124" height="124" x="2" y="2" fill="#363d52" stroke="#212532" stroke-width="4" rx="14"/><g fill="#fff" transform="translate(12.322 12.322)scale(.101)"><path d="M105 673v33q407 354 814 0v-33z"/><path fill="#478cbf" d="m105 673 152 14q12 1 15 14l4 67 132 10 8-61q2-11 15-15h162q13 4 15 15l8 61 132-10 4-67q3-13 15-14l152-14V427q30-39 56-81-35-59-83-108-43 20-82 47-40-37-88-64 7-51 8-102-59-28-123-42-26 43-46 89-49-7-98 0-20-46-46-89-64 14-123 42 1 51 8 102-48 27-88 64-39-27-82-47-48 49-83 108 26 42 56 81zm0 33v39c0 276 813 276 814 0v-39l-134 12-5 69q-2 10-14 13l-162 11q-12 0-16-11l-10-65H446l-10 65q-4 11-16 11l-162-11q-12-3-14-13l-5-69z"/><path d="M483 600c0 34 58 34 58 0v-86c0-34-58-34-58 0z"/><circle cx="725" cy="526" r="90"/><circle cx="299" cy="526" r="90"/></g><g fill="#414042" transform="translate(12.322 12.322)scale(.101)"><circle cx="307" cy="532" r="60"/><circle cx="717" cy="532" r="60"/></g></svg>
+
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://biiefi4wumttx"
+path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://icon.svg"
+dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
+
+[gd_scene format=3 uid="uid://cvvucebld7td5"]
+
+[ext_resource type="Script" uid="uid://bom6dkcdr4jyg" path="res://icon.gd" id="1_tr34o"]
+[ext_resource type="Texture2D" uid="uid://b2w2m62lsoh8a" path="res://Donny.png" id="2_hqyvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqyvl"]
+size = Vector2(132, 110)
+
+[node name="Donny" type="CharacterBody2D" unique_id=1437958239]
+script = ExtResource("1_tr34o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1918120410]
+position = Vector2(464, 243)
+shape = SubResource("RectangleShape2D_hqyvl")
+
+[node name="Donny" type="Sprite2D" parent="." unique_id=1810719334]
+position = Vector2(464, 229)
+scale = Vector2(0.1315, 0.13824996)
+texture = ExtResource("2_hqyvl")
+
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1o74mlanwvcv"
+path="res://.godot/imported/La light house boot noise.mp3-9153eb6c14b0400b0b520aada37a24e2.mp3str"
+
+[deps]
+
+source_file="res://La light house boot noise.mp3"
+dest_files=["res://.godot/imported/La light house boot noise.mp3-9153eb6c14b0400b0b520aada37a24e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
+
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bl8qq1kmhicnl"
+path="res://.godot/imported/Lighthouse games real.png-3ebcaea68aea4a2238cb67ef7eacc3e8.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Lighthouse games real.png"
+dest_files=["res://.godot/imported/Lighthouse games real.png-3ebcaea68aea4a2238cb67ef7eacc3e8.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
+
+[gd_scene format=3 uid="uid://bq7yejii18efo"]
+
+[ext_resource type="PackedScene" uid="uid://cvvucebld7td5" path="res://icon.tscn" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://bxshkank7t68a" path="res://Cage.png" id="2_0e48y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(155, 330.5)
+
+[node name="Node2D" type="Node2D" unique_id=81389186]
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=976292977]
+position = Vector2(58, 61)
+
+[node name="ColorRect" type="ColorRect" parent="Wall" unique_id=2014763793]
+offset_left = 259.0
+offset_top = 163.0
+offset_right = 299.0
+offset_bottom = 203.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1491331466]
+position = Vector2(206, 231.5)
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[node name="CharacterBody2D" parent="." unique_id=1437958239 instance=ExtResource("1_wtcfe")]
+position = Vector2(94, 71)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1778757335]
+position = Vector2(461, 248)
+position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1276252161]
+position = Vector2(591.00006, 292)
+scale = Vector2(5.5080643, 5.056452)
+texture = ExtResource("2_0e48y")
+
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Woven (Copy)"
+run/main_scene="uid://6eosan0fdase"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/image="uid://bl8qq1kmhicnl"
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://dfsgjefjuqsqv"
+
+[autoload]
+
+SettingsManager="*uid://dwdovke2eo7nf"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
+[input]
+
+move_up={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+move_down={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dxq0qraspsi8a"
+path="res://.godot/imported/Temp tree.png-26686108d3f08797aaf118335b723654.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Temp tree.png"
+dest_files=["res://.godot/imported/Temp tree.png-26686108d3f08797aaf118335b723654.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
+
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diw4wlbr8nl46"
+path="res://.godot/imported/toby fox - UNDERTALE Soundtrack - 15 sans..mp3-f2f07a7ca2cf16d7583bffb1f074e740.mp3str"
+
+[deps]
+
+source_file="res://toby fox - UNDERTALE Soundtrack - 15 sans..mp3"
+dest_files=["res://.godot/imported/toby fox - UNDERTALE Soundtrack - 15 sans..mp3-f2f07a7ca2cf16d7583bffb1f074e740.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
+
+extends TextureRect
+
+const TEXTURES = [
+	preload("res://Main Menu/Yarn 3.png"), # Green
+	preload("res://Main Menu/Yarn 4.png"), # Purple
+	preload("res://Main Menu/Yarn 5.png"), # Red
+	preload("res://Main Menu/Yarn 1.png"), # Tan
+	preload("res://Main Menu/Yarn 2.png")  # Orange
+]
+
+func init_yarn(stamp_size: float) -> void:
+	texture = TEXTURES[randi() % TEXTURES.size()]
+	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	stretch_mode = TextureRect.STRETCH_SCALE
+	custom_minimum_size = Vector2(stamp_size, stamp_size)
+	size = Vector2(stamp_size, stamp_size)
+	pivot_offset = Vector2(stamp_size / 2.0, stamp_size / 2.0)
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+
+uid://ccejgknrdlwe4
+
+[gd_scene format=3 uid="uid://bf5rbc7ecwg5w"]
+
+[ext_resource type="Script" uid="uid://ccejgknrdlwe4" path="res://yarn_stamp.gd" id="1_bmgj4"]
+
+[node name="YarnStamp" type="TextureRect" unique_id=1538621233]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bmgj4")
