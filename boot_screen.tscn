@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://djomn86h6gjua"]
+
+[ext_resource type="Texture2D" uid="uid://bl8qq1kmhicnl" path="res://Lighthouse games real.png" id="1_e05bb"]
+[ext_resource type="Script" uid="uid://coqushyldei82" path="res://boot_screen.gd" id="1_r5uig"]
+[ext_resource type="AudioStream" uid="uid://c1o74mlanwvcv" path="res://La light house boot noise.mp3" id="2_qgk0v"]
+
+[sub_resource type="Animation" id="Animation_qgk0v"]
+resource_name = "Boot_Animation"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5.02, 7.02, 7.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6acqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r5uig"]
+_data = {
+&"Boot_Animation": SubResource("Animation_qgk0v"),
+&"RESET": SubResource("Animation_6acqa")
+}
+
+[node name="BootScreen" type="Control" unique_id=1448587569]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r5uig")
+
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=1416527168]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1510102, 1.1648148)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1422106698]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e05bb")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1032103500]
+libraries/ = SubResource("AnimationLibrary_r5uig")
+autoplay = &"Boot_Animation"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1264255481]
+stream = ExtResource("2_qgk0v")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

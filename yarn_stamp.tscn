@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bf5rbc7ecwg5w"]
+
+[ext_resource type="Script" uid="uid://ccejgknrdlwe4" path="res://yarn_stamp.gd" id="1_bmgj4"]
+
+[node name="YarnStamp" type="TextureRect" unique_id=1538621233]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bmgj4")

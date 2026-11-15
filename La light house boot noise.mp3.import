@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1o74mlanwvcv"
+path="res://.godot/imported/La light house boot noise.mp3-9153eb6c14b0400b0b520aada37a24e2.mp3str"
+
+[deps]
+
+source_file="res://La light house boot noise.mp3"
+dest_files=["res://.godot/imported/La light house boot noise.mp3-9153eb6c14b0400b0b520aada37a24e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

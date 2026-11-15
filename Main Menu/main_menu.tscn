@@ -1,0 +1,598 @@
+[gd_scene format=3 uid="uid://c5kqk3fiagl7q"]
+
+[ext_resource type="Script" uid="uid://dvjp4bqrhpxh4" path="res://Main Menu/main_menu.gd" id="1_2ekim"]
+[ext_resource type="Texture2D" uid="uid://oafjrepuyikw" path="res://Main Menu/Woven Main Menu fixed.png" id="2_2ekim"]
+[ext_resource type="Texture2D" uid="uid://covu53jlwjm60" path="res://Main Menu/Woven play button.png" id="3_b6svo"]
+[ext_resource type="Texture2D" uid="uid://ble1javf7bq86" path="res://Main Menu/Woven play button selected.png" id="4_tgyvh"]
+[ext_resource type="Texture2D" uid="uid://cc6qlf1laopow" path="res://Main Menu/Woven options button.png" id="5_eq6yn"]
+[ext_resource type="Texture2D" uid="uid://b32dye6pga1cp" path="res://Main Menu/Woven options button selected.png" id="6_xn1h2"]
+[ext_resource type="Texture2D" uid="uid://bxh0p2fw505xa" path="res://Main Menu/Woven quit button.png" id="7_ev4s5"]
+[ext_resource type="Texture2D" uid="uid://jplbb4i72sfa" path="res://Main Menu/Woven quit button selected.png" id="8_qm7iq"]
+[ext_resource type="Script" uid="uid://c6qnqvwkw0ip4" path="res://Main Menu/transition_layer.gd" id="9_hd3la"]
+[ext_resource type="AudioStream" uid="uid://bftqumha72weu" path="res://Main Menu/Pop Sound.wav" id="10_tgyvh"]
+[ext_resource type="AudioStream" uid="uid://gbms1v6cdspo" path="res://Main Menu/Pop Sound 2.wav" id="11_eq6yn"]
+[ext_resource type="AudioStream" uid="uid://6og5hrbsr4ix" path="res://The Take Over - The Breaks Over.wav" id="12_xn1h2"]
+[ext_resource type="Texture2D" uid="uid://breplf67cktpv" path="res://Main Menu/Settings Menu/Woven Menu Settings art 1 no text.png" id="13_ev4s5"]
+[ext_resource type="Script" uid="uid://bwlt8exn612xq" path="res://Main Menu/settings_menu.gd" id="13_qm7iq"]
+[ext_resource type="AudioStream" uid="uid://bn7gf4wd4cb0w" path="res://Main Menu/Settings Menu/Thrillville Off The Rails Soundtrack - Al Lindsay - Critics' Song.mp3" id="14_ev4s5"]
+[ext_resource type="Texture2D" uid="uid://dstxrmjd4jre7" path="res://Main Menu/Settings Menu/Woven Menu Settings art 2 no text.png" id="15_wr501"]
+[ext_resource type="Texture2D" uid="uid://c2f22762p3obw" path="res://Main Menu/Settings Menu/Woven Menu Settings art 3 no text.png" id="16_1t8gn"]
+[ext_resource type="Texture2D" uid="uid://cyr2i10ettj3n" path="res://Main Menu/Settings Menu/Woven Menu Settings art 4 no text.png" id="17_miurs"]
+[ext_resource type="Theme" uid="uid://cyoltb62l7462" path="res://Main Menu/settings_theme.tres" id="18_1t8gn"]
+[ext_resource type="Texture2D" uid="uid://w4c8ct8ybi3b" path="res://Main Menu/Woven Menu Settings check box 1.png" id="19_ga7i7"]
+[ext_resource type="Texture2D" uid="uid://djtk3imqkbkkj" path="res://Main Menu/Woven Menu Settings check box 3.png" id="21_ooh81"]
+[ext_resource type="Texture2D" uid="uid://cfrrr04bia4bi" path="res://Main Menu/Woven Menu Settings dropdown box 1.png" id="22_hka7c"]
+[ext_resource type="Texture2D" uid="uid://biwrfgpjf030" path="res://Main Menu/Woven Menu Settings check box 4.png" id="22_mlhb2"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_qm7iq"]
+file = "res://Main Menu/Settings Menu/Woven-settings-animation.ogv"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5vg4"]
+texture = ExtResource("22_hka7c")
+texture_margin_left = 32.0
+texture_margin_right = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ojye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q74s7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7thbi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfisg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wq1kf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1n174"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rm36s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pls7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o150a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obs3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03xca"]
+
+[node name="MainMenu" type="Control" unique_id=1883161804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ekim")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1362944717]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2ekim")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Menu_Buttons" type="VBoxContainer" parent="." unique_id=1415057384]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.5
+offset_top = -82.5
+offset_right = 148.5
+offset_bottom = 222.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play Button" type="TextureButton" parent="Menu_Buttons" unique_id=200213148]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_b6svo")
+texture_pressed = ExtResource("4_tgyvh")
+texture_hover = ExtResource("4_tgyvh")
+texture_disabled = ExtResource("3_b6svo")
+texture_focused = ExtResource("4_tgyvh")
+
+[node name="Options Button" type="TextureButton" parent="Menu_Buttons" unique_id=943630192]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_eq6yn")
+texture_pressed = ExtResource("6_xn1h2")
+texture_hover = ExtResource("6_xn1h2")
+texture_disabled = ExtResource("5_eq6yn")
+texture_focused = ExtResource("6_xn1h2")
+
+[node name="Quit Button" type="TextureButton" parent="Menu_Buttons" unique_id=1525855421]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_ev4s5")
+texture_pressed = ExtResource("8_qm7iq")
+texture_hover = ExtResource("8_qm7iq")
+texture_disabled = ExtResource("7_ev4s5")
+texture_focused = ExtResource("8_qm7iq")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=684076767]
+script = ExtResource("9_hd3la")
+
+[node name="YarnContainer" type="Control" parent="TransitionLayer" unique_id=226484218]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PopOnSound" type="AudioStreamPlayer" parent="TransitionLayer" unique_id=1345673516]
+stream = ExtResource("10_tgyvh")
+max_polyphony = 20
+
+[node name="PopOffSound" type="AudioStreamPlayer" parent="TransitionLayer" unique_id=934423456]
+stream = ExtResource("11_eq6yn")
+max_polyphony = 20
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="TransitionLayer" unique_id=635860617]
+stream = ExtResource("12_xn1h2")
+volume_db = -10.0
+autoplay = true
+
+[node name="SettingsMenu" type="Control" parent="." unique_id=1957084089]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("13_qm7iq")
+video_bg = ExtResource("13_ev4s5")
+controls_bg = ExtResource("15_wr501")
+sound_bg = ExtResource("16_1t8gn")
+unknown_bg = ExtResource("17_miurs")
+
+[node name="BackgroundVideo" type="VideoStreamPlayer" parent="SettingsMenu" unique_id=557532497]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_qm7iq")
+autoplay = true
+expand = true
+loop = true
+
+[node name="SettingsMenuImage" type="TextureRect" parent="SettingsMenu" unique_id=1629607902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_ev4s5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VideoTabBtn" type="TextureButton" parent="SettingsMenu" unique_id=1622703822]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 155.0
+offset_right = 896.0
+offset_bottom = 534.0
+
+[node name="SoundTabBtn" type="TextureButton" parent="SettingsMenu" unique_id=1570978400]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 155.0
+offset_right = 896.0
+offset_bottom = 534.0
+
+[node name="ControlsTabBtn" type="TextureButton" parent="SettingsMenu" unique_id=1523911455]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 155.0
+offset_right = 896.0
+offset_bottom = 534.0
+
+[node name="Unknown" type="TextureButton" parent="SettingsMenu" unique_id=1489887839]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 155.0
+offset_right = 896.0
+offset_bottom = 534.0
+mouse_filter = 2
+
+[node name="VideoControl" type="Control" parent="SettingsMenu" unique_id=1839006632]
+anchors_preset = 0
+offset_left = 248.0
+offset_top = 144.0
+offset_right = 906.0
+offset_bottom = 544.0
+
+[node name="VideoList" type="ScrollContainer" parent="SettingsMenu/VideoControl" unique_id=847024818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = -21.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("18_1t8gn")
+theme_override_constants/scrollbar_h_separation = 40
+theme_override_constants/scrollbar_v_separation = 40
+vertical_scroll_mode = 2
+
+[node name="VideoRow" type="VBoxContainer" parent="SettingsMenu/VideoControl/VideoList" unique_id=1621141659]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="FullscreenRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=1207771043]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="FullscreenCheck" type="TextureButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FullscreenRow" unique_id=1227917914]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("19_ga7i7")
+texture_pressed = ExtResource("22_mlhb2")
+texture_hover = ExtResource("21_ooh81")
+texture_disabled = ExtResource("19_ga7i7")
+texture_focused = ExtResource("21_ooh81")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FullscreenRow" unique_id=1309809115]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "FULLSCREEN"
+
+[node name="ResContainer" type="PanelContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=601277386]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_t5vg4")
+
+[node name="ResRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ResContainer" unique_id=232652212]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ResContainer/ResRow" unique_id=1406313759]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "RESULATION"
+
+[node name="ResDropdown" type="OptionButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ResContainer/ResRow" unique_id=608890089]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ojye")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_q74s7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7thbi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cfisg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wq1kf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1n174")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rm36s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pls7i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o150a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_obs3u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03xca")
+theme_override_constants/arrow_margin = 4
+clip_text = true
+
+[node name="ResScaleRow" type="VBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=1809536141]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ResScaleRow" unique_id=1342926491]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "RESOLUTION SCALE"
+
+[node name="ResScaleSlider" type="HSlider" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ResScaleRow" unique_id=1656484038]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 50.0
+value = 50.0
+
+[node name="FpsContainer" type="PanelContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=561416274]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_t5vg4")
+
+[node name="FpsRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FpsContainer" unique_id=913953252]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FpsContainer/FpsRow" unique_id=1442686408]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "FPS LIMIT"
+
+[node name="FpsDropdown" type="OptionButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FpsContainer/FpsRow" unique_id=1716854973]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ojye")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_q74s7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7thbi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cfisg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wq1kf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1n174")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rm36s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pls7i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o150a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_obs3u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03xca")
+theme_override_constants/arrow_margin = 4
+clip_text = true
+
+[node name="EffectsRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=2016797314]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="EffectsCheck" type="TextureButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/EffectsRow" unique_id=476982785]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("19_ga7i7")
+texture_pressed = ExtResource("22_mlhb2")
+texture_hover = ExtResource("21_ooh81")
+texture_disabled = ExtResource("19_ga7i7")
+texture_focused = ExtResource("21_ooh81")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/EffectsRow" unique_id=1102901935]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "VISUAL AND PARTICAL EFFECTS"
+
+[node name="FlashRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=251279913]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="FlashCheck" type="TextureButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FlashRow" unique_id=1953735200]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("19_ga7i7")
+texture_pressed = ExtResource("22_mlhb2")
+texture_hover = ExtResource("21_ooh81")
+texture_disabled = ExtResource("19_ga7i7")
+texture_focused = ExtResource("21_ooh81")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FlashRow" unique_id=2132782033]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SCREAN FLASHES"
+
+[node name="ShakeRow" type="VBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=349321099]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ShakeRow" unique_id=1669215563]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SCREEN SHAKE"
+
+[node name="ShakeSlider" type="HSlider" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ShakeRow" unique_id=556136471]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+step = 5.0
+
+[node name="ColourBlindModeRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=2055769250]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ColourBlindModeCheck" type="TextureButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ColourBlindModeRow" unique_id=708427687]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("19_ga7i7")
+texture_pressed = ExtResource("22_mlhb2")
+texture_hover = ExtResource("21_ooh81")
+texture_disabled = ExtResource("19_ga7i7")
+texture_focused = ExtResource("21_ooh81")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/ColourBlindModeRow" unique_id=1045694150]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "COLOURBLINDMODE"
+
+[node name="FilterContainer" type="PanelContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=1203134527]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_t5vg4")
+
+[node name="FilterRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FilterContainer" unique_id=203062157]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FilterContainer/FilterRow" unique_id=1614267004]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SCREEN FILTERS"
+
+[node name="FilterDropdown" type="OptionButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/FilterContainer/FilterRow" unique_id=709675283]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ojye")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_q74s7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7thbi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cfisg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wq1kf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1n174")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rm36s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pls7i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o150a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_obs3u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03xca")
+theme_override_constants/arrow_margin = 4
+clip_text = true
+
+[node name="LanguageContainer" type="PanelContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=1824830870]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_t5vg4")
+
+[node name="LaunguageRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow/LanguageContainer" unique_id=1221198014]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/LanguageContainer/LaunguageRow" unique_id=431468956]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "LANGUAGE"
+
+[node name="LanguageBtn" type="OptionButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/LanguageContainer/LaunguageRow" unique_id=1042845223]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ojye")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_q74s7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7thbi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cfisg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wq1kf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1n174")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rm36s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pls7i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_o150a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_obs3u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_03xca")
+theme_override_constants/arrow_margin = 4
+clip_text = true
+
+[node name="StreamerRow" type="HBoxContainer" parent="SettingsMenu/VideoControl/VideoList/VideoRow" unique_id=84750583]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="StreamerCheck" type="TextureButton" parent="SettingsMenu/VideoControl/VideoList/VideoRow/StreamerRow" unique_id=1851587024]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("19_ga7i7")
+texture_pressed = ExtResource("22_mlhb2")
+texture_hover = ExtResource("21_ooh81")
+texture_disabled = ExtResource("19_ga7i7")
+texture_focused = ExtResource("21_ooh81")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SettingsMenu/VideoControl/VideoList/VideoRow/StreamerRow" unique_id=1114386297]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "STREAMER MODE"
+
+[node name="SoundControl" type="Control" parent="SettingsMenu" unique_id=530095584]
+anchors_preset = 0
+offset_left = 247.0
+offset_top = 144.0
+offset_right = 906.0
+offset_bottom = 544.0
+
+[node name="ScollList" type="ScrollContainer" parent="SettingsMenu/SoundControl" unique_id=2034215155]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SoundRow" type="VBoxContainer" parent="SettingsMenu/SoundControl/ScollList" unique_id=5381590]
+layout_mode = 2
+
+[node name="SoundRow2" type="HBoxContainer" parent="SettingsMenu/SoundControl/ScollList/SoundRow" unique_id=341991404]
+layout_mode = 2
+
+[node name="ControlsControl" type="Control" parent="SettingsMenu" unique_id=1397581957]
+anchors_preset = 0
+offset_left = 249.0
+offset_top = 145.0
+offset_right = 907.0
+offset_bottom = 545.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsMenu/ControlsControl" unique_id=1161820015]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControllRow" type="VBoxContainer" parent="SettingsMenu/ControlsControl/ScrollContainer" unique_id=847124624]
+layout_mode = 2
+
+[node name="ControllRow2" type="HBoxContainer" parent="SettingsMenu/ControlsControl/ScrollContainer/ControllRow" unique_id=1008314536]
+layout_mode = 2
+
+[node name="UnknownControl" type="Control" parent="SettingsMenu" unique_id=362511285]
+anchors_preset = 0
+offset_left = 248.0
+offset_top = 144.0
+offset_right = 906.0
+offset_bottom = 544.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsMenu/UnknownControl" unique_id=2141792158]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 13.0
+offset_right = 645.0
+offset_bottom = 387.0
+
+[node name="UnknownRow" type="VBoxContainer" parent="SettingsMenu/UnknownControl/ScrollContainer" unique_id=1954760027]
+layout_mode = 2
+
+[node name="UnknownRow2" type="HBoxContainer" parent="SettingsMenu/UnknownControl/ScrollContainer/UnknownRow" unique_id=870857581]
+layout_mode = 2
+
+[node name="SettingsMusic" type="AudioStreamPlayer" parent="SettingsMenu" unique_id=1589121024]
+stream = ExtResource("14_ev4s5")
+
+[connection signal="pressed" from="Menu_Buttons/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu_Buttons/Options Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Menu_Buttons/Quit Button" to="." method="_on_quit_button_pressed"]

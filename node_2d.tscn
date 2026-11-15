@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bq7yejii18efo"]
+
+[ext_resource type="PackedScene" uid="uid://cvvucebld7td5" path="res://icon.tscn" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://bxshkank7t68a" path="res://Cage.png" id="2_0e48y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(155, 330.5)
+
+[node name="Node2D" type="Node2D" unique_id=81389186]
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=976292977]
+position = Vector2(58, 61)
+
+[node name="ColorRect" type="ColorRect" parent="Wall" unique_id=2014763793]
+offset_left = 259.0
+offset_top = 163.0
+offset_right = 299.0
+offset_bottom = 203.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1491331466]
+position = Vector2(206, 231.5)
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[node name="CharacterBody2D" parent="." unique_id=1437958239 instance=ExtResource("1_wtcfe")]
+position = Vector2(94, 71)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1778757335]
+position = Vector2(461, 248)
+position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1276252161]
+position = Vector2(591.00006, 292)
+scale = Vector2(5.5080643, 5.056452)
+texture = ExtResource("2_0e48y")

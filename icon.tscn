@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvvucebld7td5"]
+
+[ext_resource type="Script" uid="uid://bom6dkcdr4jyg" path="res://icon.gd" id="1_tr34o"]
+[ext_resource type="Texture2D" uid="uid://b2w2m62lsoh8a" path="res://Donny.png" id="2_hqyvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqyvl"]
+size = Vector2(132, 110)
+
+[node name="Donny" type="CharacterBody2D" unique_id=1437958239]
+script = ExtResource("1_tr34o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1918120410]
+position = Vector2(464, 243)
+shape = SubResource("RectangleShape2D_hqyvl")
+
+[node name="Donny" type="Sprite2D" parent="." unique_id=1810719334]
+position = Vector2(464, 229)
+scale = Vector2(0.1315, 0.13824996)
+texture = ExtResource("2_hqyvl")
